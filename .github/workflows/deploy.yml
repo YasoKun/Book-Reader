@@ -3,6 +3,16 @@ name: Deploy Story Garden to GitHub Pages
 on:
   push:
     branches: [main]
+    paths:
+      - '.github/workflows/deploy.yml'
+      - '.nojekyll'
+      - 'app.js'
+      - 'books.js'
+      - 'icon.svg'
+      - 'index.html'
+      - 'manifest.webmanifest'
+      - 'service-worker.js'
+      - 'styles.css'
   workflow_dispatch:
 
 permissions:
