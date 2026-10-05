@@ -1,0 +1,13 @@
+{
+  "name": "Ryan & Eva's Story Garden",
+  "short_name": "Story Garden",
+  "description": "A cozy bilingual storybook reader for little readers.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fbf8f1",
+  "theme_color": "#fbf8f1",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

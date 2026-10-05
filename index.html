@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#fbf8f1">
+    <meta name="description" content="A cozy bilingual story garden with read-aloud adventures for Ryan and Eva.">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <title>Ryan &amp; Eva's Story Garden</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="icon.svg">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="books.js"></script>
+    <script defer src="app.js"></script>
+    <script>
+      if ("serviceWorker" in navigator && location.protocol !== "file:") {
+        window.addEventListener("load", () => navigator.serviceWorker.register("service-worker.js").catch(() => {}));
+      }
+    </script>
+  </head>
+  <body>
+    <div class="app-shell" id="app">
+      <header class="topbar">
+        <a class="brand" href="#home" aria-label="Story Garden home">
+          <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 5c-7 8-14 13-14 22a14 14 0 0 0 28 0c0-9-7-14-14-22Z" fill="currentColor"/><path d="M24 16c-1 7-4 12-10 16 1 5 5 8 10 8s9-3 10-8c-6-4-9-9-10-16Z" fill="#fff6d5"/><path d="M24 25v13" stroke="#ffad57" stroke-width="2.5" stroke-linecap="round"/></svg></span>
+          <span class="brand-copy"><strong>Story Garden</strong><small>Little stories, big wonder</small></span>
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <button class="nav-link is-active" data-view="library" type="button"><span class="nav-icon">▦</span><span data-copy="navLibrary">My library</span></button>
+          <button class="nav-link" data-view="favorites" type="button"><span class="nav-icon">♡</span><span data-copy="navFavorites">My favorites</span></button>
+        </nav>
+        <div class="top-actions">
+          <div class="language-switch" aria-label="Choose story language">
+            <button type="button" data-language="en" aria-pressed="true">EN</button>
+            <span aria-hidden="true">·</span>
+            <button type="button" data-language="ar" aria-pressed="false">عربي</button>
+          </div>
+          <button class="profile-button" type="button" aria-label="Ryan and Eva's reading corner"><span>R</span><span>E</span></button>
+        </div>
+      </header>
+
+      <main id="main-content">
+        <section class="home-view" id="home-view">
+          <section class="welcome-hero" aria-labelledby="welcome-title">
+            <div class="hero-copy">
+              <p class="eyebrow"><span class="eyebrow-star">✦</span><span data-copy="eyebrow">A little reading magic</span></p>
+              <h1 id="welcome-title"><span data-copy="welcomeLine1">Every story</span><br><span class="title-accent" data-copy="welcomeLine2">is a new adventure!</span></h1>
+              <p class="hero-description" data-copy="heroDescription">Pick a cozy corner, choose a book, and let Ryan &amp; Eva take you somewhere wonderful.</p>
+              <button class="primary-button" id="continue-reading" type="button"><span data-copy="continueReading">Continue reading</span><span aria-hidden="true"> →</span></button>
+              <div class="hero-note"><span class="note-icon">☼</span><span data-copy="madeFor">Made for curious little readers</span></div>
+            </div>
+            <div class="hero-art" aria-label="Ryan and Eva reading together in a magical garden">
+              <div class="hero-sun"></div><div class="hero-cloud cloud-one"></div><div class="hero-cloud cloud-two"></div>
+              <span class="hero-spark spark-one">✦</span><span class="hero-spark spark-two">✧</span><span class="hero-spark spark-three">✦</span>
+              <svg class="kids-illustration" viewBox="0 0 520 360" role="img" aria-hidden="true">
+                <ellipse cx="262" cy="323" rx="190" ry="23" fill="#dbe7c0"/>
+                <path d="M72 298c11-60 52-87 92-91 30-3 49 13 72 9 35-6 52-25 93-14 38 10 70 42 84 96Z" fill="#a9cc83"/>
+                <path d="M94 302c15-42 41-60 70-61 33-1 47 19 80 19 35 0 53-26 91-17 27 6 53 25 72 59Z" fill="#7db271"/>
+                <path d="M151 304c-12-40-2-80 25-93 28-13 64 5 79 37 12 27 9 44 6 56Z" fill="#ffcb8b"/>
+                <path d="M151 235c2-31 22-48 49-49 32-1 51 22 50 53-21-9-34-20-45-36-13 19-31 28-54 32Z" fill="#513b38"/>
+                <path d="M169 257c0-9 5-15 12-15s12 6 12 15" fill="none" stroke="#503b38" stroke-width="4" stroke-linecap="round"/>
+                <circle cx="182" cy="253" r="3" fill="#383b46"/><circle cx="218" cy="253" r="3" fill="#383b46"/>
+                <path d="M188 274c7 7 16 7 23 0" fill="none" stroke="#d87962" stroke-width="3" stroke-linecap="round"/>
+                <path d="M150 296c10-19 28-30 48-30 20 0 39 11 51 30v27H150Z" fill="#e98567"/>
+                <path d="M256 304c-5-39 7-70 36-84 30-14 67-4 79 24 8 18 3 39-4 60Z" fill="#f3c1a1"/>
+                <path d="M266 236c0-29 17-47 43-49 26-2 47 13 55 39-15-4-28-13-39-28-13 17-30 28-59 38Z" fill="#765140"/>
+                <path d="M279 258c0-8 5-14 12-14s12 6 12 14" fill="none" stroke="#765140" stroke-width="4" stroke-linecap="round"/>
+                <circle cx="291" cy="253" r="3" fill="#383b46"/><circle cx="329" cy="253" r="3" fill="#383b46"/>
+                <path d="M298 275c7 6 16 6 22 0" fill="none" stroke="#d87962" stroke-width="3" stroke-linecap="round"/>
+                <path d="M258 294c10-17 28-27 48-27 22 0 40 11 50 29v31H258Z" fill="#768ac9"/>
+                <path d="m211 286 50-18 54 19-52 24Z" fill="#ffe5a5" stroke="#d48b5d" stroke-width="3" stroke-linejoin="round"/>
+                <path d="m263 292 2 19" stroke="#d48b5d" stroke-width="2"/>
+                <path d="M142 314h229" stroke="#517e58" stroke-width="5" stroke-linecap="round"/>
+                <path d="M109 302c0-12 7-19 15-19s14 7 14 19m243 0c0-11 7-17 14-17s14 6 14 17" fill="none" stroke="#f3b656" stroke-width="5" stroke-linecap="round"/>
+                <circle cx="107" cy="295" r="7" fill="#f8dc86"/><circle cx="405" cy="296" r="7" fill="#f8dc86"/>
+                <path d="M100 304v13m14-13v13m277-13v13m14-13v13" stroke="#6d9b67" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+              <div class="hero-caption"><span class="caption-icon">📖</span><span data-copy="caption">Their next adventure is waiting…</span></div>
+            </div>
+          </section>
+
+          <section class="library-section" aria-labelledby="library-title">
+            <div class="section-heading">
+              <div><p class="eyebrow section-eyebrow"><span class="eyebrow-star">✦</span><span data-copy="theCollection">The collection</span></p><h2 id="library-title" data-copy="chooseStory">Choose your next story</h2></div>
+              <div class="library-controls">
+                <label class="visually-hidden" for="search-books" data-copy="searchLabel">Search stories</label>
+                <div class="search-box"><span aria-hidden="true">⌕</span><input id="search-books" type="search" data-placeholder="searchPlaceholder" placeholder="Find a story…"></div>
+                <label class="visually-hidden" for="sort-books" data-copy="sortLabel">Sort stories</label>
+                <select id="sort-books" class="sort-select"><option value="featured" data-copy="sortFeatured">Featured</option><option value="shortest" data-copy="sortShortest">Quick reads</option><option value="az" data-copy="sortAZ">A to Z</option></select>
+              </div>
+            </div>
+            <div class="filter-row" role="group" aria-label="Filter by reading mood">
+              <button class="filter-chip is-selected" data-filter="all" type="button"><span>✦</span><span data-copy="filterAll">All stories</span></button>
+              <button class="filter-chip" data-filter="dreamy" type="button"><span>☾</span><span data-copy="filterDreamy">Dreamy</span></button>
+              <button class="filter-chip" data-filter="nature" type="button"><span>❀</span><span data-copy="filterNature">Nature</span></button>
+              <button class="filter-chip" data-filter="brave" type="button"><span>✧</span><span data-copy="filterBrave">Little adventures</span></button>
+            </div>
+            <div class="book-grid" id="book-grid" aria-live="polite"></div>
+            <div class="empty-state" id="empty-state" hidden><span>🌱</span><p data-copy="emptyState">No stories here yet. Try another search!</p></div>
+          </section>
+
+          <section class="grownup-note"><div class="grownup-icon">♡</div><div><strong data-copy="grownupTitle">A little note for grown-ups</strong><p data-copy="grownupDescription">Every story is made for reading together. Snuggle up, take your time, and let little questions bloom.</p></div><span class="note-leaf" aria-hidden="true">✿</span></section>
+        </section>
+
+        <section class="reader-view" id="reader-view" hidden></section>
+      </main>
+      <footer class="site-footer"><span>© <span id="year"></span> <span data-copy="footerText">Ryan &amp; Eva's Story Garden</span></span><span><span class="footer-spark">✦</span> <span data-copy="footerMade">Made for little dreamers</span></span></footer>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
