@@ -94,10 +94,21 @@
     return text("natureAdventure");
   }
 
+  function storySprite(book, index, imageAttributes = "") {
+    const column = index % 2;
+    const row = Math.floor(index / 2);
+    const rowTop = book.artRows[row];
+    const rowHeight = book.artRows[row + 1] - rowTop;
+    const imageHeight = (1536 / rowHeight) * 100;
+    const imageTop = -(rowTop / rowHeight) * 100;
+    const imageLeft = -(column * 100);
+    return `<div class="story-sprite" style="--sprite-left:${imageLeft}%;--sprite-top:${imageTop}%;--sprite-height:${imageHeight}%"><img src="${escapeHtml(book.art)}" alt="" ${imageAttributes}></div>`;
+  }
+
   function coverArt(book) {
     return `<div class="cover-art ${escapeHtml(book.cover)}" aria-hidden="true">
-      <span class="cover-moon"></span><span class="cover-cloud"></span><span class="cover-hill"></span>
-      <span class="cover-book"><svg viewBox="0 0 60 60"><path d="M30 13c-9-6-16-5-21-2v31c7-4 14-4 21 2 7-6 14-6 21-2V11c-5-3-12-4-21 2Z" fill="#fff" stroke="#b99977" stroke-width="2" stroke-linejoin="round"/><path d="M30 14v30" stroke="#d2b791" stroke-width="2"/><path d="M10 19c5-2 10-1 15 2m-15 5c5-2 10-1 15 2m20-9c-5-2-10-1-15 2m15 5c-5-2-10-1-15 2" fill="none" stroke="#dbcab0" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+      <span class="cover-star star-a">✦</span><span class="cover-star star-b">✧</span><span class="cover-star star-c">✦</span>
+      <div class="cover-image-window">${storySprite(book, 0)}</div>
     </div>`;
   }
 
@@ -138,14 +149,8 @@
     document.getElementById("empty-state").hidden = visible.length > 0;
   }
 
-  function sceneHTML(book, page, index) {
-    const scene = page.scene || book.cover;
-    const friend = book.id === "moonlight-picnic" && index >= 3 ? "firefly" : book.id === "clouds-lost-rainbow" ? "cloud-friend" : "";
-    return `<div class="page-art scene-${escapeHtml(scene)}" aria-hidden="true">
-      <span class="illustration-blob"></span><span class="illustration-ground"></span><span class="illustration-moon"></span>
-      <span class="scene-decor decor-one">✦</span><span class="scene-decor decor-two">✧</span><span class="scene-decor decor-three">✦</span>
-      <span class="page-character ryan"></span><span class="page-character eva"></span>${friend ? `<span class="page-character ${friend}"></span>` : ""}
-    </div>`;
+  function sceneHTML(book, index) {
+    return `<div class="page-art" aria-hidden="true">${storySprite(book, index, 'decoding="async"')}</div>`;
   }
 
   function getActiveBook() { return books.find(book => book.id === state.activeBookId); }
@@ -180,7 +185,7 @@
         </div>
       </div>
       <div class="reader-heading"><p class="reader-kicker">${escapeHtml(bookThemeLabel(book))}</p><h1>${escapeHtml(title)}</h1><div class="reading-progress" aria-label="${percent}%"><span style="width:${percent}%"></span></div></div>
-      <article class="book-page" aria-label="${escapeHtml(text("page"))} ${state.page + 1} ${escapeHtml(text("of"))} ${book.pages.length}">${sceneHTML(book, page, state.page)}${readerTextMarkup(book, page)}</article>
+      <article class="book-page" aria-label="${escapeHtml(text("page"))} ${state.page + 1} ${escapeHtml(text("of"))} ${book.pages.length}">${sceneHTML(book, state.page)}${readerTextMarkup(book, page)}</article>
       <div class="page-controls"><button class="page-button previous" id="previous-page" type="button" ${state.page === 0 ? "disabled" : ""}><span aria-hidden="true">${state.language === "ar" ? "→" : "←"}</span>${escapeHtml(text("previous"))}</button><span class="page-counter">${escapeHtml(text("page"))} ${state.page + 1} ${escapeHtml(text("of"))} ${book.pages.length}</span><button class="page-button" id="next-page" type="button">${escapeHtml(isLast ? text("finish") : text("next"))}<span aria-hidden="true">${state.language === "ar" ? "←" : "→"}</span></button></div>
       ${isLast ? `<div class="reader-finish">✦ ${escapeHtml(text("finishedNote"))} ✦</div><section class="story-questions" dir="${currentMode === "ar" ? "rtl" : "ltr"}"><h2>${escapeHtml(text("chatTogether"))}</h2><ol>${questions.map(question => `<li>${escapeHtml(question)}</li>`).join("")}</ol></section>` : ""}`;
     home.hidden = true;

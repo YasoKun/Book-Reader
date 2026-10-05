@@ -12,4 +12,6 @@ Use this prompt whenever adding the next story to Ryan & Eva's Story Garden:
 
 ## Add the finished story
 
-Convert the reviewed story into a book object in `books.js`. Use a unique lowercase `id`, one of the available `cover` themes, and put each matched language pair in the same page object. Keep the conversation questions in the book's `questions` array. Open the app in both language modes and read through every page before publishing.
+Convert the reviewed story into a book object in `books.js`. Use a unique lowercase `id`, one of the available `cover` themes, and put each matched language pair in the same page object. Keep the conversation questions in the book's `questions` array.
+
+Create one generated illustration sheet for its six pages using `assets/ryan-eva-character-guide.webp` as the visual reference. Keep Ryan and Eva's appearance and clothes consistent with the guide. Make exactly six borderless, text-free square scenes in a 2-column by 3-row grid, ordered to match the story pages. Save it as a 1024 × 1536 WebP file under `assets/` and set that path in the book's `art` property. Record the actual horizontal pixel boundaries of all three rows in an `artRows` array in the book object; it must start with `0` and end with `1536`. This lets the reader crop each illustration without showing part of the next panel. Open the app in both language modes and page through the story to make sure every illustration matches its line before publishing.

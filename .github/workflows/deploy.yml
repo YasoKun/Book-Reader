@@ -7,6 +7,7 @@ on:
       - '.github/workflows/deploy.yml'
       - '.nojekyll'
       - 'app.js'
+      - 'assets/**'
       - 'books.js'
       - 'icon.svg'
       - 'index.html'
@@ -38,8 +39,9 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Prepare the static site
         run: |
-          mkdir public
+          mkdir -p public/assets
           cp index.html styles.css app.js books.js manifest.webmanifest service-worker.js icon.svg .nojekyll public/
+          cp assets/*.webp public/assets/
       - name: Upload the site
         uses: actions/upload-pages-artifact@v3
         with:

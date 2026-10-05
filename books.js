@@ -7,6 +7,8 @@ window.STORY_BOOKS = [
     level: "A gentle bedtime read",
     mood: "dreamy",
     cover: "moon",
+    art: "assets/moonlight-picnic-story.webp",
+    artRows: [0, 432, 979, 1536],
     questions: {
       en: ["What would you pack for a moonlight picnic?", "How did Ryan and Eva make their guest feel welcome?", "What sounds do you hear at night?"],
       ar: ["ماذا ستضع في سلة نزهة ليلية؟", "كيف جعل ريان وإيفا ضيفهما يشعر بالترحيب؟", "ما الأصوات التي تسمعها في الليل؟"]
@@ -28,6 +30,8 @@ window.STORY_BOOKS = [
     level: "A bright read-aloud",
     mood: "nature",
     cover: "cloud",
+    art: "assets/lost-rainbow-story.webp",
+    artRows: [0, 524, 1026, 1536],
     questions: {
       en: ["Which rainbow color is your favorite?", "What clues helped them find the rainbow?", "How can you help a friend who feels cloudy?"],
       ar: ["ما لونك المفضل في قوس قزح؟", "ما العلامات التي ساعدتهم في العثور عليه؟", "كيف تواسي صديقاً يشعر بالحزن؟"]
@@ -49,6 +53,8 @@ window.STORY_BOOKS = [
     level: "A tiny nature adventure",
     mood: "brave",
     cover: "garden",
+    art: "assets/garden-song-story.webp",
+    artRows: [0, 512, 1024, 1536],
     questions: {
       en: ["What helps a garden grow?", "How did Ryan and Eva figure out what the flowers needed?", "What is one kind thing you could do for nature?"],
       ar: ["ما الذي يساعد الحديقة على النمو؟", "كيف عرف ريان وإيفا ما تحتاج إليه الأزهار؟", "ما عملٌ لطيف يمكنك القيام به من أجل الطبيعة؟"]
