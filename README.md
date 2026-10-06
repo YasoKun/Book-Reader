@@ -1,6 +1,6 @@
 # Ryan & Eva's Story Garden
 
-A responsive, bilingual storybook reader for children, featuring English and Arabic stories about Ryan and Eva. The app is a static site that can run locally or be published with GitHub Pages. Its realistic page turns use a locally bundled copy of [StPageFlip](https://github.com/Nodlik/StPageFlip) 2.0.7 (MIT); the library and license are in `vendor/`.
+A responsive, bilingual storybook reader for children, featuring English and Arabic stories about Ryan and Eva. The app is a static site that can run locally or be published with GitHub Pages. Its realistic page turns use a locally bundled copy of [StPageFlip](https://github.com/Nodlik/StPageFlip) 2.0.7 (MIT); the library and license are in `vendor/`. A short paper-rustle effect is synthesized locally with Web Audio, so no sound asset or external request is needed.
 
 ## Run locally
 

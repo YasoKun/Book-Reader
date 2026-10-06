@@ -39,6 +39,8 @@
   const home = document.getElementById("home-view");
   const toast = document.getElementById("toast");
   let pageFlip = null;
+  let paperAudioContext = null;
+  let paperNoiseBuffer = null;
   document.getElementById("year").textContent = new Date().getFullYear();
 
   function readStorage(key, fallback) {
@@ -154,6 +156,11 @@
     return `<div class="page-art" aria-hidden="true">${storySprite(book, index, 'decoding="async"')}</div>`;
   }
 
+  function sceneAspectRatio(book, index) {
+    const row = Math.floor(index / 2);
+    return (512 / (book.artRows[row + 1] - book.artRows[row])).toFixed(4);
+  }
+
   function getActiveBook() { return books.find(book => book.id === state.activeBookId); }
   function readerIsRightToLeft() {
     const mode = state.readingMode || state.language;
@@ -190,7 +197,7 @@
         </div>
       </div>
       <div class="reader-heading"><p class="reader-kicker">${escapeHtml(bookThemeLabel(book))}</p><h1>${escapeHtml(title)}</h1><div class="reading-progress" aria-label="0%"><span></span></div></div>
-      <div class="book-page-frame" id="story-flipbook">${book.pages.map((page, index) => { const pageIndex = rightToLeft ? book.pages.length - 1 - index : index; return `<article class="flip-page" data-density="soft" aria-label="${escapeHtml(text("page"))} ${pageIndex + 1} ${escapeHtml(text("of"))} ${book.pages.length}"><div class="flip-page-art">${sceneHTML(book, pageIndex)}</div>${readerTextMarkup(book, page, pageIndex)}</article>`; }).join("")}</div>
+      <div class="book-page-frame" id="story-flipbook">${book.pages.map((page, index) => { const pageIndex = rightToLeft ? book.pages.length - 1 - index : index; return `<article class="flip-page" data-density="soft" aria-label="${escapeHtml(text("page"))} ${pageIndex + 1} ${escapeHtml(text("of"))} ${book.pages.length}"><div class="flip-page-art" style="--scene-ratio:${sceneAspectRatio(book, pageIndex)}">${sceneHTML(book, pageIndex)}</div>${readerTextMarkup(book, page, pageIndex)}</article>`; }).join("")}</div>
       <div class="page-controls"><button class="page-button previous" id="previous-page" type="button" disabled><span aria-hidden="true">${state.language === "ar" ? "→" : "←"}</span>${escapeHtml(text("previous"))}</button><span class="page-counter"><span class="page-counter-label"></span><small class="drag-hint">${escapeHtml(text("dragHint"))}</small></span><button class="page-button" id="next-page" type="button">${escapeHtml(text("next"))}<span aria-hidden="true">${state.language === "ar" ? "←" : "→"}</span></button></div>
       <div class="reader-finish" hidden>✦ ${escapeHtml(text("finishedNote"))} ✦</div><section class="story-questions" dir="${currentMode === "ar" ? "rtl" : "ltr"}" hidden><h2>${escapeHtml(text("chatTogether"))}</h2><ol>${questions.map(question => `<li>${escapeHtml(question)}</li>`).join("")}</ol></section>`;
     home.hidden = true;
@@ -206,12 +213,12 @@
     reader.querySelectorAll("[data-size]").forEach(button => button.addEventListener("click", () => changeTextSize(Number(button.dataset.size))));
     pageFlip = new St.PageFlip(reader.querySelector("#story-flipbook"), {
       width: 500,
-      height: 590,
+      height: 740,
       size: "stretch",
       minWidth: 280,
       maxWidth: 560,
-      minHeight: 390,
-      maxHeight: 680,
+      minHeight: 500,
+      maxHeight: 820,
       maxShadowOpacity: 0.34,
       flippingTime: 900,
       usePortrait: true,
@@ -226,11 +233,60 @@
       updateReaderProgress(book, pageFlip);
       saveProgress(false, Math.min(book.pages.length, state.page + visiblePageCount(pageFlip, book)));
     });
+    pageFlip.on("changeState", event => {
+      if (event.data === "flipping" || event.data === "user_fold") playPaperFlip();
+    });
     pageFlip.on("changeOrientation", () => updateReaderProgress(book, pageFlip));
-    pageFlip.on("init", () => updateReaderProgress(book, pageFlip));
-    attachRightToLeftPortraitGestures(reader.querySelector("#story-flipbook"));
+    pageFlip.on("init", () => {
+      updateReaderProgress(book, pageFlip);
+    });
+    const flipbook = reader.querySelector("#story-flipbook");
+    flipbook.addEventListener("pointerdown", preparePaperAudio, { capture: true, passive: true });
+    flipbook.addEventListener("touchstart", preparePaperAudio, { capture: true, passive: true });
+    attachRightToLeftPortraitGestures(flipbook);
     pageFlip.loadFromHTML(reader.querySelectorAll(".flip-page"));
     updateReaderProgress(book, pageFlip);
+  }
+
+  function preparePaperAudio() {
+    if (!paperAudioContext) {
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContextClass) return;
+      try {
+        paperAudioContext = new AudioContextClass();
+        paperNoiseBuffer = paperAudioContext.createBuffer(1, Math.ceil(paperAudioContext.sampleRate * 0.48), paperAudioContext.sampleRate);
+        const noise = paperNoiseBuffer.getChannelData(0);
+        for (let index = 0; index < noise.length; index += 1) noise[index] = Math.random() * 2 - 1;
+      } catch (_) { paperAudioContext = null; paperNoiseBuffer = null; return; }
+    }
+    if (paperAudioContext.state === "suspended") paperAudioContext.resume().catch(() => {});
+  }
+
+  function playPaperFlip() {
+    preparePaperAudio();
+    if (!paperAudioContext || !paperNoiseBuffer) return;
+    const sound = () => {
+      const now = paperAudioContext.currentTime;
+      const source = paperAudioContext.createBufferSource();
+      const highPass = paperAudioContext.createBiquadFilter();
+      const lowPass = paperAudioContext.createBiquadFilter();
+      const volume = paperAudioContext.createGain();
+      source.buffer = paperNoiseBuffer;
+      highPass.type = "highpass";
+      highPass.frequency.value = 520;
+      lowPass.type = "lowpass";
+      lowPass.frequency.value = 6400;
+      volume.gain.setValueAtTime(0.0001, now);
+      volume.gain.linearRampToValueAtTime(0.085, now + 0.035);
+      volume.gain.linearRampToValueAtTime(0.024, now + 0.15);
+      volume.gain.linearRampToValueAtTime(0.06, now + 0.2);
+      volume.gain.exponentialRampToValueAtTime(0.0001, now + 0.44);
+      source.connect(highPass).connect(lowPass).connect(volume).connect(paperAudioContext.destination);
+      source.start(now);
+      source.stop(now + 0.46);
+    };
+    if (paperAudioContext.state === "suspended") paperAudioContext.resume().then(sound).catch(() => {});
+    else sound();
   }
 
   state.speaking = false;
@@ -268,6 +324,7 @@
   }
 
   function flipToward(direction) {
+    preparePaperAudio();
     if (pageFlip.getOrientation() !== "portrait") {
       pageFlip[direction === "back" ? "flipPrev" : "flipNext"]("bottom");
       return;
@@ -360,6 +417,7 @@
   function openBook(id, page) {
     const book = books.find(item => item.id === id);
     if (!book) return;
+    preparePaperAudio();
     stopSpeech();
     state.activeBookId = id;
     state.page = Math.max(0, Math.min(book.pages.length - 1, Number(page) || 0));
