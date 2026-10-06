@@ -67,5 +67,28 @@ window.STORY_BOOKS = [
       { en: "The leaves lifted. The sunflower stretched tall. A bee hummed one note, then another, and the garden began to sing again.", ar: "ارتفعت الأوراق، واستقامت زهرة دوّار الشمس. دندنت نحلة نغمةً ثم أخرى، وعادت الحديقة تغني.", scene: "flowers" },
       { en: "Ryan and Eva clapped along. Their garden song was a thank-you for listening and caring.", ar: "صفّق ريان وإيفا مع اللحن. كانت أغنية الحديقة شكراً لهما لأنهما أصغيا واعتنيا بها.", scene: "flowers" }
     ]
+  },
+  {
+    id: "seed-found-home",
+    title: { en: "The Seed That Found a Home", ar: "البذرة التي وجدت بيتاً" },
+    description: { en: "Ryan and Eva help a tiny seed grow into a sunny surprise.", ar: "يساعد ريان وإيفا بذرة صغيرة لتنمو وتصبح مفاجأة مشرقة." },
+    minutes: 4,
+    level: "A tiny nature adventure",
+    mood: "nature",
+    cover: "garden",
+    art: "assets/seed-home-story.webp",
+    artRows: [0, 512, 1024, 1536],
+    questions: {
+      en: ["What did the seed need to grow?", "How did Ryan and Eva care for the sprout?", "What would you like to grow in a garden?"],
+      ar: ["ماذا احتاجت البذرة لكي تنمو؟", "كيف اعتنى ريان وإيفا بالبرعم؟", "ماذا تحب أن تزرع في حديقة؟"]
+    },
+    pages: [
+      { en: "On their way to the garden, Ryan and Eva found a tiny seed by the path. It looked like a little brown boat.", ar: "في طريقهما إلى الحديقة، وجد ريان وإيفا بذرة صغيرة بجانب الممر. بدت كأنها قارب بني صغير.", scene: "discovery" },
+      { en: "“It needs a home,” said Eva. Ryan spotted a sunny patch of soft earth near the fence.", ar: "قالت إيفا: «إنها تحتاج إلى بيت». ورأى ريان بقعة تراب ناعمة ومشمسة قرب السياج.", scene: "sunny-patch" },
+      { en: "Ryan loosened the soil while Eva poured a little water. Together, they tucked the seed into its cozy bed.", ar: "فكّ ريان التراب، بينما سكبت إيفا قليلاً من الماء. ثم وضعا البذرة معاً في مهدها الدافئ.", scene: "planting" },
+      { en: "Each day, they checked the soil. One morning, a green sprout waved at them! They gave it a gentle drink.", ar: "كانا يتفقدان التراب كل يوم. وفي صباح، لوّح لهما برعم أخضر! فسقياه قليلاً برفق.", scene: "sprout" },
+      { en: "The sprout grew tall and opened into a golden sunflower. A bee zipped over to say hello.", ar: "طال البرعم وتفتحت منه زهرة دوّار شمس ذهبية. وحضرت نحلة مسرعة لتلقي التحية.", scene: "sunflower" },
+      { en: "Ryan and Eva saved some new seeds for next spring. “A little care can grow a lot,” Eva smiled.", ar: "احتفظ ريان وإيفا ببعض البذور للربيع القادم. وابتسمت إيفا قائلة: «القليل من العناية ينمّي أشياء كثيرة». ", scene: "new-seeds" }
+    ]
   }
 ];
