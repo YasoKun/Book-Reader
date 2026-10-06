@@ -10,14 +10,14 @@
       theCollection: "The collection", chooseStory: "Choose your next story", searchLabel: "Search stories", searchPlaceholder: "Find a story…", sortLabel: "Sort stories", sortFeatured: "Featured", sortShortest: "Quick reads", sortAZ: "A to Z",
       filterAll: "All stories", filterDreamy: "Dreamy", filterNature: "Nature", filterBrave: "Little adventures", emptyState: "No stories here yet. Try another search!", grownupTitle: "A little note for grown-ups", grownupDescription: "Every story is made for reading together. Snuggle up, take your time, and let little questions bloom.", footerText: "Ryan & Eva's Story Garden", footerMade: "Made for little dreamers",
       bedtime: "A gentle bedtime read", readAloud: "A bright read-aloud", natureAdventure: "A tiny nature adventure", dreamy: "Dreamy", nature: "Nature", brave: "Adventure", minutes: "min read", startStory: "Read story", keepGoing: "Keep going", readAgain: "Read again", favorite: "Add to favorites", unfavorite: "Remove from favorites",
-      back: "Back to library", english: "English", arabic: "Arabic", both: "Both", listen: "Read aloud", stopListening: "Stop reading", bigger: "Make text bigger", smaller: "Make text smaller", page: "Page", of: "of", previous: "Previous", next: "Next page", finish: "The end", finishedNote: "You finished this story! What a lovely adventure.", chatTogether: "Talk about the story", listeningUnavailable: "Read aloud is not available in this browser.", languageUnavailable: "This browser does not have a voice for that language.", savedFavorite: "Saved to your favorites", removedFavorite: "Removed from your favorites", textLarge: "Text is already at its largest size", textSmall: "Text is already at its smallest size", openStory: "Open story: ", short: "Quick read", medium: "Cozy read"
+      back: "Back to library", english: "English", arabic: "Arabic", both: "Both", listen: "Read aloud", stopListening: "Stop reading", bigger: "Make text bigger", smaller: "Make text smaller", page: "Page", of: "of", previous: "Previous", next: "Next page", dragHint: "Swipe or drag the page edge to turn it", finish: "The end", finishedNote: "You finished this story! What a lovely adventure.", chatTogether: "Talk about the story", listeningUnavailable: "Read aloud is not available in this browser.", languageUnavailable: "This browser does not have a voice for that language.", savedFavorite: "Saved to your favorites", removedFavorite: "Removed from your favorites", textLarge: "Text is already at its largest size", textSmall: "Text is already at its smallest size", openStory: "Open story: ", short: "Quick read", medium: "Cozy read"
     },
     ar: {
       navLibrary: "مكتبتي", navFavorites: "قصصي المفضلة", eyebrow: "سحر القراءة الصغير", welcomeLine1: "كل حكاية", welcomeLine2: "مغامرة جديدة!", heroDescription: "اختر مكاناً دافئاً وكتاباً جميلاً، ودع ريان وإيفا يأخذانك إلى عالمٍ رائع.", continueReading: "تابع القراءة", madeFor: "للقرّاء الصغار المحبين للاستكشاف", caption: "مغامرتهما التالية بانتظاركما…",
       theCollection: "مجموعة الحكايات", chooseStory: "اختر حكايتك التالية", searchLabel: "ابحث في الحكايات", searchPlaceholder: "ابحث عن حكاية…", sortLabel: "ترتيب الحكايات", sortFeatured: "مختارة", sortShortest: "قراءات سريعة", sortAZ: "أ إلى ي",
       filterAll: "كل الحكايات", filterDreamy: "أحلام", filterNature: "الطبيعة", filterBrave: "مغامرات صغيرة", emptyState: "لا توجد حكايات هنا. جرّب بحثاً آخر!", grownupTitle: "ملاحظة صغيرة للكبار", grownupDescription: "كل حكاية أجمل حين نقرؤها معاً. اقتربوا، واقرؤوا على مهل، ودعوا الأسئلة الصغيرة تنمو.", footerText: "حديقة حكايات ريان وإيفا", footerMade: "للحالمين الصغار",
       bedtime: "حكاية هادئة قبل النوم", readAloud: "حكاية جميلة للقراءة", natureAdventure: "مغامرة صغيرة في الطبيعة", dreamy: "أحلام", nature: "الطبيعة", brave: "مغامرة", minutes: "دقائق", startStory: "اقرأ الحكاية", keepGoing: "تابع الحكاية", readAgain: "اقرأها مجدداً", favorite: "أضف إلى المفضلة", unfavorite: "أزل من المفضلة",
-      back: "العودة إلى المكتبة", english: "الإنجليزية", arabic: "العربية", both: "اللغتان", listen: "استمع إلى الحكاية", stopListening: "أوقف القراءة", bigger: "كبّر الخط", smaller: "صغّر الخط", page: "الصفحة", of: "من", previous: "السابقة", next: "الصفحة التالية", finish: "النهاية", finishedNote: "أنهيت هذه الحكاية! يا لها من مغامرة جميلة.", chatTogether: "لنتحدث عن الحكاية", listeningUnavailable: "ميزة القراءة الصوتية غير متاحة في هذا المتصفح.", languageUnavailable: "لا يتوفر صوت بهذه اللغة في هذا المتصفح.", savedFavorite: "أُضيفت إلى المفضلة", removedFavorite: "أُزيلت من المفضلة", textLarge: "هذا أكبر حجم للخط", textSmall: "هذا أصغر حجم للخط", openStory: "افتح الحكاية: ", short: "قراءة سريعة", medium: "قراءة هادئة"
+      back: "العودة إلى المكتبة", english: "الإنجليزية", arabic: "العربية", both: "اللغتان", listen: "استمع إلى الحكاية", stopListening: "أوقف القراءة", bigger: "كبّر الخط", smaller: "صغّر الخط", page: "الصفحة", of: "من", previous: "السابقة", next: "الصفحة التالية", dragHint: "اسحب طرف الصفحة لقلبها", finish: "النهاية", finishedNote: "أنهيت هذه الحكاية! يا لها من مغامرة جميلة.", chatTogether: "لنتحدث عن الحكاية", listeningUnavailable: "ميزة القراءة الصوتية غير متاحة في هذا المتصفح.", languageUnavailable: "لا يتوفر صوت بهذه اللغة في هذا المتصفح.", savedFavorite: "أُضيفت إلى المفضلة", removedFavorite: "أُزيلت من المفضلة", textLarge: "هذا أكبر حجم للخط", textSmall: "هذا أصغر حجم للخط", openStory: "افتح الحكاية: ", short: "قراءة سريعة", medium: "قراءة هادئة"
     }
   };
 
@@ -185,8 +185,8 @@
         </div>
       </div>
       <div class="reader-heading"><p class="reader-kicker">${escapeHtml(bookThemeLabel(book))}</p><h1>${escapeHtml(title)}</h1><div class="reading-progress" aria-label="${percent}%"><span style="width:${percent}%"></span></div></div>
-      <article class="book-page" aria-label="${escapeHtml(text("page"))} ${state.page + 1} ${escapeHtml(text("of"))} ${book.pages.length}">${sceneHTML(book, state.page)}${readerTextMarkup(book, page)}</article>
-      <div class="page-controls"><button class="page-button previous" id="previous-page" type="button" ${state.page === 0 ? "disabled" : ""}><span aria-hidden="true">${state.language === "ar" ? "→" : "←"}</span>${escapeHtml(text("previous"))}</button><span class="page-counter">${escapeHtml(text("page"))} ${state.page + 1} ${escapeHtml(text("of"))} ${book.pages.length}</span><button class="page-button" id="next-page" type="button">${escapeHtml(isLast ? text("finish") : text("next"))}<span aria-hidden="true">${state.language === "ar" ? "←" : "→"}</span></button></div>
+      <div class="book-page-frame"><article class="book-page" aria-label="${escapeHtml(text("page"))} ${state.page + 1} ${escapeHtml(text("of"))} ${book.pages.length}">${sceneHTML(book, state.page)}${readerTextMarkup(book, page)}<div class="page-curl" aria-hidden="true"></div></article></div>
+      <div class="page-controls"><button class="page-button previous" id="previous-page" type="button" ${state.page === 0 ? "disabled" : ""}><span aria-hidden="true">${state.language === "ar" ? "→" : "←"}</span>${escapeHtml(text("previous"))}</button><span class="page-counter"><span>${escapeHtml(text("page"))} ${state.page + 1} ${escapeHtml(text("of"))} ${book.pages.length}</span><small class="drag-hint" data-copy="dragHint">${escapeHtml(text("dragHint"))}</small></span><button class="page-button" id="next-page" type="button">${escapeHtml(isLast ? text("finish") : text("next"))}<span aria-hidden="true">${state.language === "ar" ? "←" : "→"}</span></button></div>
       ${isLast ? `<div class="reader-finish">✦ ${escapeHtml(text("finishedNote"))} ✦</div><section class="story-questions" dir="${currentMode === "ar" ? "rtl" : "ltr"}"><h2>${escapeHtml(text("chatTogether"))}</h2><ol>${questions.map(question => `<li>${escapeHtml(question)}</li>`).join("")}</ol></section>` : ""}`;
     home.hidden = true;
     reader.hidden = false;
@@ -194,6 +194,7 @@
     reader.querySelector("#back-to-library").addEventListener("click", () => goHome(true));
     reader.querySelector("#previous-page").addEventListener("click", previousPage);
     reader.querySelector("#next-page").addEventListener("click", nextPage);
+    attachPageGestures(reader.querySelector(".book-page"));
     reader.querySelector("#listen-button").addEventListener("click", toggleSpeech);
     reader.querySelectorAll("[data-reader-language]").forEach(button => button.addEventListener("click", () => {
       stopSpeech(); state.readingMode = button.dataset.readerLanguage; renderReader();
@@ -213,7 +214,13 @@
   }
 
   function previousPage() {
-    if (state.page > 0) { stopSpeech(); state.page -= 1; renderReader(); }
+    if (state.page > 0) {
+      stopSpeech();
+      const turn = capturePageTurn("previous");
+      state.page -= 1;
+      renderReader();
+      playPageTurn(turn);
+    }
   }
 
   function nextPage() {
@@ -221,10 +228,108 @@
     if (!book) return;
     stopSpeech();
     if (state.page < book.pages.length - 1) {
+      const turn = capturePageTurn("next");
       state.page += 1; saveProgress(false); renderReader();
+      playPageTurn(turn);
     } else {
       saveProgress(true); renderReader(); showToast(text("finishedNote"));
     }
+  }
+
+  function capturePageTurn(direction) {
+    const currentPage = reader.querySelector(".book-page");
+    if (!currentPage || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return null;
+    const frameRect = currentPage.parentElement.getBoundingClientRect();
+    const pageRect = currentPage.getBoundingClientRect();
+    const sheet = currentPage.cloneNode(true);
+    sheet.classList.add("page-turn-sheet");
+    sheet.setAttribute("aria-hidden", "true");
+    sheet.inert = true;
+    sheet.style.top = `${pageRect.top - frameRect.top}px`;
+    sheet.style.left = `${pageRect.left - frameRect.left}px`;
+    sheet.style.width = `${pageRect.width}px`;
+    sheet.style.height = `${pageRect.height}px`;
+    const rtl = document.documentElement.dir === "rtl";
+    const hingeLeft = direction === "next" ? !rtl : rtl;
+    sheet.style.transformOrigin = hingeLeft ? "left center" : "right center";
+    return { sheet, rotation: hingeLeft ? "-180deg" : "180deg" };
+  }
+
+  function playPageTurn(turn) {
+    if (!turn) return;
+    reader.querySelector(".book-page-frame").appendChild(turn.sheet);
+    const tilt = turn.rotation.startsWith("-") ? "-18deg" : "18deg";
+    const halfTurn = turn.rotation.startsWith("-") ? "-91deg" : "91deg";
+    const animation = turn.sheet.animate([
+      { transform: "perspective(1500px) rotateY(0deg)", filter: "brightness(1)", boxShadow: "0 6px 0 #e5d7b4, 0 15px 30px rgba(45,65,95,.09)" },
+      { offset: .18, transform: `perspective(1500px) rotateY(${tilt})`, filter: "brightness(.94)" },
+      { offset: .52, transform: `perspective(1500px) rotateY(${halfTurn})`, filter: "brightness(.78)" },
+      { transform: `perspective(1500px) rotateY(${turn.rotation})`, filter: "brightness(.88)", boxShadow: "0 2px 0 #e5d7b4, 0 4px 10px rgba(45,65,95,.06)" }
+    ], { duration: 620, easing: "cubic-bezier(.48,.02,.34,1)", fill: "forwards" });
+    animation.onfinish = () => turn.sheet.remove();
+    animation.oncancel = () => turn.sheet.remove();
+  }
+
+  function attachPageGestures(bookPage) {
+    if (!bookPage) return;
+    let gesture = null;
+
+    function clearCurl() {
+      bookPage.classList.remove("is-dragging-next", "is-dragging-previous");
+      bookPage.style.removeProperty("--curl-progress");
+    }
+
+    function directionFromDrag(deltaX) {
+      const isRtl = document.documentElement.dir === "rtl";
+      return (deltaX < 0) !== isRtl ? "next" : "previous";
+    }
+
+    bookPage.addEventListener("pointerdown", event => {
+      if (!event.isPrimary || (event.pointerType === "mouse" && event.button !== 0)) return;
+      if (event.target.closest("img")) event.preventDefault();
+      gesture = { pointerId: event.pointerId, startX: event.clientX, startY: event.clientY, horizontal: false, cancelled: false };
+      if (bookPage.setPointerCapture) bookPage.setPointerCapture(event.pointerId);
+    });
+
+    bookPage.addEventListener("dragstart", event => event.preventDefault());
+
+    bookPage.addEventListener("pointermove", event => {
+      if (!gesture || event.pointerId !== gesture.pointerId || gesture.cancelled) return;
+      const deltaX = event.clientX - gesture.startX;
+      const deltaY = event.clientY - gesture.startY;
+      if (!gesture.horizontal) {
+        if (Math.abs(deltaY) > 12 && Math.abs(deltaY) > Math.abs(deltaX)) { gesture.cancelled = true; return; }
+        if (Math.abs(deltaX) < 8 || Math.abs(deltaX) < Math.abs(deltaY)) return;
+        gesture.horizontal = true;
+      }
+      event.preventDefault();
+      const direction = directionFromDrag(deltaX);
+      const activeBook = getActiveBook();
+      const canTurn = activeBook && (direction === "next" ? state.page < activeBook.pages.length - 1 : state.page > 0);
+      if (!canTurn) { clearCurl(); return; }
+      const progress = Math.min(1, Math.abs(deltaX) / (bookPage.clientWidth * .48));
+      bookPage.style.setProperty("--curl-progress", String(progress));
+      bookPage.classList.toggle("is-dragging-next", direction === "next");
+      bookPage.classList.toggle("is-dragging-previous", direction === "previous");
+    }, { passive: false });
+
+    function finishGesture(event) {
+      if (!gesture || event.pointerId !== gesture.pointerId) return;
+      const deltaX = event.clientX - gesture.startX;
+      const direction = directionFromDrag(deltaX);
+      const shouldTurn = gesture.horizontal && !gesture.cancelled && Math.abs(deltaX) >= Math.max(72, bookPage.clientWidth * .16);
+      clearCurl();
+      gesture = null;
+      if (shouldTurn) {
+        if (direction === "next") nextPage();
+        else previousPage();
+      }
+    }
+
+    bookPage.addEventListener("pointerup", finishGesture);
+    bookPage.addEventListener("pointercancel", event => {
+      if (gesture && event.pointerId === gesture.pointerId) { clearCurl(); gesture = null; }
+    });
   }
 
   function changeTextSize(change) {
