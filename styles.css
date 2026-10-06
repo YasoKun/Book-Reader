@@ -129,7 +129,7 @@ h1 { max-width: 570px; margin-bottom: 14px; font-family: "Trebuchet MS", "Arial 
 .footer-spark { color: #e4a82f; }
 
 /* Reader */
-.reader-view { position: relative; padding: 24px 0 60px; perspective: 1500px; }
+.reader-view { position: relative; padding: 24px 0 60px; }
 .reader-top { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-bottom: 18px; }
 .back-button { display: inline-flex; align-items: center; gap: 7px; padding: 10px 14px; border: 2px solid #fff; border-radius: 15px; color: #5d6290; background: #eee8ff; box-shadow: 0 3px 0 #d5caee; font-size: 12px; font-weight: 900; cursor: pointer; }
 .reader-tools { display: flex; align-items: center; gap: 7px; }
@@ -138,22 +138,17 @@ h1 { max-width: 570px; margin-bottom: 14px; font-family: "Trebuchet MS", "Arial 
 .text-size-tools { display: flex; border: 2px solid #fff; border-radius: 14px; background: #fffefa; box-shadow: 0 3px 0 #e9debd; }.text-size-tools button { padding: 8px 10px; border: 0; color: #64748d; background: transparent; font-size: 12px; font-weight: 900; cursor: pointer; }.text-size-tools button + button { border-left: 1px solid #eee9e1; }
 .reader-heading { margin: 0 0 17px; text-align: center; }.reader-kicker { width: fit-content; margin: 0 auto 5px; padding: 6px 12px; border: 2px solid white; border-radius: 100px; color: #7868b6; background: #eee8ff; font-size: 10px; font-weight: 900; }.reader-heading h1 { margin: 0; color: #2c3f60; font-family: "Trebuchet MS", sans-serif; font-size: 32px; font-weight: 900; letter-spacing: -.6px; }
 .reading-progress { width: min(420px,100%); height: 8px; margin: 12px auto 0; overflow: hidden; border: 2px solid white; border-radius: 10px; background: #ece6f2; }.reading-progress span { display: block; height: 100%; border-radius: 10px; background: linear-gradient(90deg,#8f7bea,#fa9871); transition: width .25s; }
-.book-page-frame { position: relative; width: min(890px,100%); margin: 0 auto; overflow: hidden; border-radius: 32px; perspective: 1500px; }
-.book-page { position: relative; width: 100%; min-height: 390px; margin: 0; padding: 7px; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; gap: 7px; border: 4px solid white; border-radius: 29px; background: #fffefa; box-shadow: 0 6px 0 #e5d7b4, 0 15px 30px rgba(45,65,95,.09); cursor: grab; touch-action: pan-y; user-select: none; }
-.book-page:active { cursor: grabbing; }
-.book-page::before { content: ""; position: absolute; z-index: 4; right: 0; bottom: 0; width: 38px; height: 38px; border-bottom-right-radius: 22px; background: linear-gradient(135deg,transparent 48%,#f2e8d0 50%,#fffefa 73%); pointer-events: none; }
-.book-page[dir="rtl"]::before, body[dir="rtl"] .book-page::before { right: auto; left: 0; border-radius: 0 0 0 22px; transform: scaleX(-1); }
-.page-curl { position: absolute; z-index: 3; top: 7px; right: 7px; bottom: 7px; width: 55%; border-radius: 0 22px 22px 0; opacity: 0; background: linear-gradient(90deg,transparent 50%,rgba(47,61,89,.08) 78%,rgba(255,255,255,.88)); box-shadow: inset -10px 0 18px rgba(49,62,86,.12); transform: scaleX(var(--curl-progress,0)); transform-origin: right center; transition: opacity .12s; pointer-events: none; }
-.book-page.is-dragging-next .page-curl, .book-page.is-dragging-previous .page-curl { opacity: 1; }
-.book-page.is-dragging-previous .page-curl { right: auto; left: 7px; border-radius: 22px 0 0 22px; background: linear-gradient(270deg,transparent 50%,rgba(47,61,89,.08) 78%,rgba(255,255,255,.88)); box-shadow: inset 10px 0 18px rgba(49,62,86,.12); transform-origin: left center; }
-body[dir="rtl"] .book-page.is-dragging-next .page-curl { right: auto; left: 7px; border-radius: 22px 0 0 22px; background: linear-gradient(270deg,transparent 50%,rgba(47,61,89,.08) 78%,rgba(255,255,255,.88)); box-shadow: inset 10px 0 18px rgba(49,62,86,.12); transform-origin: left center; }
-body[dir="rtl"] .book-page.is-dragging-previous .page-curl { right: 7px; left: auto; border-radius: 0 22px 22px 0; background: linear-gradient(90deg,transparent 50%,rgba(47,61,89,.08) 78%,rgba(255,255,255,.88)); box-shadow: inset -10px 0 18px rgba(49,62,86,.12); transform-origin: right center; }
-.page-turn-sheet { position: absolute !important; z-index: 10; margin: 0 !important; overflow: hidden; transform-style: preserve-3d; pointer-events: none; }
-.page-turn-sheet > * { backface-visibility: hidden; }
-.page-turn-sheet::before { display: none; }
-.page-turn-sheet::after { content: ""; position: absolute; z-index: 11; inset: 0; border-radius: inherit; background: linear-gradient(90deg,#f4ead0,#fffefa 16%,#fffefa 82%,#e9dfc8); box-shadow: inset 8px 0 15px rgba(49,62,86,.12); transform: rotateY(180deg); backface-visibility: hidden; pointer-events: none; }
-.page-art { position: relative; min-width: 0; min-height: 385px; aspect-ratio: 1; overflow: hidden; border-radius: 22px; background: #e9e6f2; }
-.page-copy { align-self: stretch; margin: 2px; padding: 35px 10%; display: flex; flex-direction: column; justify-content: center; border-radius: 22px; background: linear-gradient(145deg,#fff9da,#fff0e9); }.page-copy .page-number { display: inline-block; align-self: flex-start; margin: 0 0 13px; padding: 6px 10px; border-radius: 100px; color: #6454ad; background: #eee8ff; font-size: 10px; font-weight: 900; }.page-copy p { margin: 0; color: #354766; font-family: "Trebuchet MS", sans-serif; font-size: var(--reader-size,24px); font-weight: 700; line-height: 1.55; }.page-copy[dir="rtl"] .page-number { align-self: flex-end; }.page-copy[dir="rtl"] p { font-family: "Noto Naskh Arabic",Tahoma,serif; font-size: calc(var(--reader-size,24px) + 4px); line-height: 1.85; }.page-copy.bilingual { padding-top: 26px; padding-bottom: 26px; }.page-copy.bilingual p { font-size: calc(var(--reader-size,18px) - 1px); }.page-copy.bilingual .arabic-copy { margin-top: 19px; padding-top: 17px; border-top: 2px dotted #e8dcbe; font-family: "Noto Naskh Arabic",Tahoma,serif; font-size: calc(var(--reader-size,18px) + 2px); line-height: 1.8; }
+.book-page-frame { width: min(1120px,100%); max-width: 100%; margin: 0 auto; overflow: visible; border-radius: 10px; }
+.book-page-frame.stf__parent { min-width: 0; min-height: 400px; box-shadow: 0 7px 0 #e5d7b4, 0 18px 34px rgba(45,65,95,.12); }
+.book-page-frame .stf__wrapper { border: 9px solid #fffefa; border-radius: 28px; background: #fffefa; }
+.flip-page { display: flex !important; flex-direction: column; gap: 12px; padding: 15px; overflow: hidden; border: 0; border-radius: 19px; background: #fffefa; }
+.flip-page::after { content: ""; position: absolute; inset: 0; z-index: 2; border: 1px solid rgba(104,91,61,.1); border-radius: inherit; box-shadow: inset 4px 0 10px rgba(83,72,54,.08); pointer-events: none; }
+.flip-page.--right::after { box-shadow: inset 4px 0 10px rgba(83,72,54,.08); }
+.flip-page.--left::after { box-shadow: inset -4px 0 10px rgba(83,72,54,.08); }
+.flip-page-art { flex: 0 0 55%; min-height: 0; overflow: hidden; border-radius: 15px; background: #e9e6f2; }
+.page-art { position: relative; width: 100%; height: 100%; min-width: 0; min-height: 0; aspect-ratio: auto; overflow: hidden; border-radius: inherit; background: #e9e6f2; }
+.flip-page .page-copy { flex: 1 1 auto; min-height: 0; margin: 0; padding: 12px 7%; display: flex; flex-direction: column; justify-content: center; overflow: auto; border-radius: 15px; background: linear-gradient(145deg,#fff9da,#fff0e9); }
+.page-copy .page-number { display: inline-block; align-self: flex-start; flex: 0 0 auto; margin: 0 0 8px; padding: 5px 9px; border-radius: 100px; color: #6454ad; background: #eee8ff; font-size: 10px; font-weight: 900; }.page-copy p { margin: 0; color: #354766; font-family: "Trebuchet MS", sans-serif; font-size: var(--reader-size,24px); font-weight: 700; line-height: 1.48; }.page-copy[dir="rtl"] .page-number { align-self: flex-end; }.page-copy[dir="rtl"] p { font-family: "Noto Naskh Arabic",Tahoma,serif; font-size: calc(var(--reader-size,24px) + 4px); line-height: 1.7; }.page-copy.bilingual { padding-top: 12px; padding-bottom: 12px; }.page-copy.bilingual p { font-size: calc(var(--reader-size,18px) - 1px); }.page-copy.bilingual .arabic-copy { margin-top: 10px; padding-top: 8px; border-top: 2px dotted #e8dcbe; font-family: "Noto Naskh Arabic",Tahoma,serif; font-size: calc(var(--reader-size,18px) + 2px); line-height: 1.55; }
 .page-controls { width: min(890px,100%); display: flex; align-items: center; justify-content: space-between; gap: 14px; margin: 19px auto 0; }.page-counter { display: grid; justify-items: center; gap: 3px; color: #718198; font-size: 11px; font-weight: 900; text-align: center; }.drag-hint { color: #98a3b3; font-size: 9px; font-weight: 700; }.page-button { display: inline-flex; align-items: center; gap: 8px; min-width: 112px; justify-content: center; padding: 12px 16px; border: 3px solid white; border-radius: 17px; color: #fff; background: #7562c4; box-shadow: 0 4px 0 #57459f; font-size: 12px; font-weight: 900; cursor: pointer; }.page-button:hover:not(:disabled) { transform: translateY(-2px); }.page-button.previous { color: #5d6290; background: #eee8ff; box-shadow: 0 4px 0 #d5caee; }
 .story-questions { width: min(890px,100%); margin: 22px auto 0; padding: 20px 24px; border: 3px dashed #f3cd66; border-radius: 22px; background: #fff4c8; }.story-questions h2 { margin: 0 0 10px; color: #5d6290; font-family: "Trebuchet MS", sans-serif; font-size: 19px; font-weight: 900; }.story-questions ol { margin: 0; padding-left: 21px; color: #64748d; font-size: 13px; font-weight: 700; line-height: 1.8; }.story-questions[dir="rtl"] ol { padding-left: 0; padding-right: 21px; }
 .reader-finish { width: min(890px,100%); margin: 16px auto 0; padding: 13px 16px; border: 3px solid #fff; border-radius: 17px; color: #69531f; background: #ffe78b; box-shadow: 0 4px 0 #e8c65d; text-align: center; font-size: 13px; font-weight: 900; }
@@ -239,9 +234,11 @@ body[dir="rtl"] .site-footer { direction: rtl; }
   .reader-top { align-items: flex-start; flex-direction: column; }
   .reader-tools { flex-wrap: wrap; }
   .reader-heading h1 { font-size: 27px; }
-  .book-page { grid-template-columns: 1fr; gap: 3px; padding: 5px; border-radius: 23px; }
-  .page-art { width: 100%; min-height: 0; aspect-ratio: 1.22; }
-  .page-copy { padding: 22px 7%; }
+  .book-page-frame.stf__parent { min-height: 390px; }
+  .book-page-frame .stf__wrapper { border-width: 6px; border-radius: 22px; }
+  .flip-page { gap: 8px; padding: 10px; }
+  .flip-page-art { flex-basis: 52%; border-radius: 13px; }
+  .flip-page .page-copy { padding: 9px 7%; border-radius: 13px; }
   .page-copy p { font-size: var(--reader-size,22px); }
   .page-controls { gap: 7px; }
   .page-button { min-width: 90px; padding: 10px 11px; font-size: 10px; }

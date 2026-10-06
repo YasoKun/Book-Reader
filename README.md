@@ -1,6 +1,6 @@
 # Ryan & Eva's Story Garden
 
-A responsive, bilingual storybook reader for children, featuring English and Arabic stories about Ryan and Eva. The app is a dependency-free static site that can run locally or be published with GitHub Pages.
+A responsive, bilingual storybook reader for children, featuring English and Arabic stories about Ryan and Eva. The app is a static site that can run locally or be published with GitHub Pages. Its realistic page turns use a locally bundled copy of [StPageFlip](https://github.com/Nodlik/StPageFlip) 2.0.7 (MIT); the library and license are in `vendor/`.
 
 ## Run locally
 
@@ -20,6 +20,6 @@ The `BOOK_CREATION_PROMPT.md` file contains the reusable prompt for drafting and
 
 ## Publish with GitHub Pages
 
-The workflow in `.github/workflows/deploy.yml` publishes the static app whenever app files change on `main`. Before the first successful deployment, open the repository's **Settings → Pages → Build and deployment**, set **Source** to **GitHub Actions**, and save. Then open **Actions → Deploy Story Garden to GitHub Pages** and choose **Run workflow** on `main`. The expected URL is `https://yasokun.github.io/Book-Reader/`; the deployment job also reports its published URL. New books are added to `books.js` and go live on the next push to `main`.
+The workflow in `.github/workflows/deploy.yml` publishes the static app whenever app files change on `main`, including the bundled page-turn library. Before the first successful deployment, open the repository's **Settings → Pages → Build and deployment**, set **Source** to **GitHub Actions**, and save. Then open **Actions → Deploy Story Garden to GitHub Pages** and choose **Run workflow** on `main`. The expected URL is `https://yasokun.github.io/Book-Reader/`; the deployment job also reports its published URL. New books are added to `books.js` and go live on the next push to `main`.
 
 This is a static client-side app. Reading progress is stored in the current browser, so it is not synced across devices.
