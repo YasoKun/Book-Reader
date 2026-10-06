@@ -141,7 +141,8 @@ h1 { max-width: 570px; margin-bottom: 14px; font-family: "Trebuchet MS", "Arial 
 .book-page-frame { width: min(1120px,100%); max-width: 100%; margin: 0 auto; overflow: visible; border-radius: 10px; }
 .book-page-frame.stf__parent { min-width: 0; min-height: 400px; box-shadow: 0 7px 0 #e5d7b4, 0 18px 34px rgba(45,65,95,.12); }
 .book-page-frame .stf__wrapper { border: 9px solid #fffefa; border-radius: 28px; background: #fffefa; }
-.flip-page { display: flex !important; flex-direction: column; gap: 12px; padding: 15px; overflow: hidden; border: 0; border-radius: 19px; background: #fffefa; }
+.flip-page { flex-direction: column; gap: 12px; padding: 15px; overflow: hidden; border: 0; border-radius: 19px; background: #fffefa; }
+.flip-page[style*="display: block"] { display: flex !important; }
 .flip-page::after { content: ""; position: absolute; inset: 0; z-index: 2; border: 1px solid rgba(104,91,61,.1); border-radius: inherit; box-shadow: inset 4px 0 10px rgba(83,72,54,.08); pointer-events: none; }
 .flip-page.--right::after { box-shadow: inset 4px 0 10px rgba(83,72,54,.08); }
 .flip-page.--left::after { box-shadow: inset -4px 0 10px rgba(83,72,54,.08); }
