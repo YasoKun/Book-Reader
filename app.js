@@ -396,17 +396,27 @@
     const book = getActiveBook();
     if (!book) return;
     const mode = state.readingMode || state.language;
-    const lang = mode === "ar" ? "ar" : "en";
-    const utterance = new SpeechSynthesisUtterance(book.pages[state.page][lang]);
-    utterance.lang = lang === "ar" ? "ar-SA" : "en-US";
     const voices = window.speechSynthesis.getVoices();
-    const voice = voices.find(item => item.lang.toLowerCase().startsWith(lang === "ar" ? "ar" : "en"));
-    if (voices.length && !voice && lang === "ar") { showToast(text("languageUnavailable")); return; }
-    if (voice) utterance.voice = voice;
-    utterance.rate = 0.88;
-    utterance.onend = () => { state.speaking = false; if (!reader.hidden) renderReader(); };
-    utterance.onerror = () => { state.speaking = false; if (!reader.hidden) renderReader(); };
-    state.speaking = true; renderReader(); window.speechSynthesis.speak(utterance);
+    const pageCount = visiblePageCount(pageFlip, book);
+    const pageTexts = book.pages.slice(state.page, state.page + pageCount);
+    const languages = mode === "both" ? ["en", "ar"] : [mode === "ar" ? "ar" : "en"];
+    const speechParts = pageTexts.flatMap(page => languages.map(lang => ({ text: page[lang], lang })));
+    const utterances = speechParts.map(({ text: speechText, lang }) => {
+      const utterance = new SpeechSynthesisUtterance(speechText);
+      utterance.lang = lang === "ar" ? "ar-SA" : "en-US";
+      const voice = voices.find(item => item.lang.toLowerCase().startsWith(lang));
+      if (voice) utterance.voice = voice;
+      utterance.rate = 0.88;
+      return utterance;
+    });
+    if (voices.length && languages.includes("ar") && !voices.some(item => item.lang.toLowerCase().startsWith("ar"))) { showToast(text("languageUnavailable")); return; }
+    utterances.forEach((utterance, index) => {
+      if (index === utterances.length - 1) utterance.onend = () => { state.speaking = false; if (!reader.hidden) renderReader(); };
+      utterance.onerror = () => { state.speaking = false; window.speechSynthesis.cancel(); if (!reader.hidden) renderReader(); };
+    });
+    state.speaking = true;
+    renderReader();
+    utterances.forEach(utterance => window.speechSynthesis.speak(utterance));
   }
 
   function stopSpeech() {
