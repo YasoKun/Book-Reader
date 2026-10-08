@@ -1,6 +1,6 @@
 const CACHE_NAME = "story-garden-v5";
 const BASE_URL = new URL("./", self.location.href);
-const SHELL_FILES = ["./", "index.html", "styles.css", "vendor/stPageFlip.css", "vendor/page-flip.browser.js", "books.js", "app.js", "manifest.webmanifest", "icon.svg", "assets/hero-reading.webp", "assets/ryan-eva-character-guide.webp", "assets/moonlight-picnic-story.webp", "assets/lost-rainbow-story.webp", "assets/garden-song-story.webp", "assets/seed-home-story.webp"];
+const SHELL_FILES = ["./", "index.html", "styles.css", "vendor/stPageFlip.css", "vendor/page-flip.browser.js", "books.js", "app.js", "manifest.webmanifest", "icon.svg", "assets/hero-reading.webp", "assets/ryan-eva-character-guide.webp", "assets/moonlight-picnic-story.webp", "assets/lost-rainbow-story.webp", "assets/garden-song-story.webp", "assets/seed-home-story.webp", "assets/hidden-dojo-story.webp"];
 
 self.addEventListener("install", event => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(SHELL_FILES.map(file => new URL(file, BASE_URL).toString()))));

@@ -102,7 +102,7 @@
     const row = Math.floor(index / 2);
     const rowTop = book.artRows[row];
     const rowHeight = book.artRows[row + 1] - rowTop;
-    const imageHeight = (1536 / rowHeight) * 100;
+    const imageHeight = ((book.artHeight || 1536) / rowHeight) * 100;
     const imageTop = -(rowTop / rowHeight) * 100;
     const imageLeft = -(column * 100);
     return `<div class="story-sprite" style="--sprite-left:${imageLeft}%;--sprite-top:${imageTop}%;--sprite-height:${imageHeight}%"><img src="${escapeHtml(book.art)}" alt="" ${imageAttributes}></div>`;
@@ -158,7 +158,7 @@
 
   function sceneAspectRatio(book, index) {
     const row = Math.floor(index / 2);
-    return (512 / (book.artRows[row + 1] - book.artRows[row])).toFixed(4);
+    return ((book.artWidth || 1024) / 2 / (book.artRows[row + 1] - book.artRows[row])).toFixed(4);
   }
 
   function getActiveBook() { return books.find(book => book.id === state.activeBookId); }

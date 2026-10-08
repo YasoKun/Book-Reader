@@ -90,5 +90,32 @@ window.STORY_BOOKS = [
       { en: "The sprout grew tall and opened into a golden sunflower. A bee zipped over to say hello.", ar: "طال البرعم وتفتحت منه زهرة دوّار شمس ذهبية. وحضرت نحلة مسرعة لتلقي التحية.", scene: "sunflower" },
       { en: "Ryan and Eva saved some new seeds for next spring. “A little care can grow a lot,” Eva smiled.", ar: "احتفظ ريان وإيفا ببعض البذور للربيع القادم. وابتسمت إيفا قائلة: «القليل من العناية ينمّي أشياء كثيرة». ", scene: "new-seeds" }
     ]
+  },
+  {
+    id: "guardians-hidden-dojo",
+    title: { en: "Ryan and Ava: Guardians of the Hidden Dojo", ar: "ريان وآفا: حارسا الدوجو الخفي" },
+    description: { en: "Two young heroes bring light back to a friendly ninja village.", ar: "بطَلان صغيران يعيدان النور إلى قرية نينجا ودودة." },
+    minutes: 6,
+    level: "A brave little adventure",
+    mood: "brave",
+    cover: "garden",
+    art: "assets/hidden-dojo-story.webp",
+    artWidth: 887,
+    artHeight: 1774,
+    artRows: [0, 443.5, 887, 1330.5, 1774],
+    questions: {
+      en: ["What special power would you choose?", "How did Ryan and Ava help the ninja mice?", "What makes someone a real hero?"],
+      ar: ["أي قوة مميزة تختار؟", "كيف ساعد ريان وآفا فئران النينجا؟", "ما الذي يجعل الإنسان بطلاً حقيقياً؟"]
+    },
+    pages: [
+      { en: "At moonrise, a paper crane flew from Ryan’s backpack. Its wings glowed, and a starry doorway opened for Ryan and Ava.", ar: "عند طلوع القمر، طارت رافعة ورقية من حقيبة ريان. أضاء جناحاها، وانفتح لريان وآفا باب مرصّع بالنجوم.", scene: "paper-crane" },
+      { en: "They landed in a friendly ninja village. “The Lantern of Courage has gone dark,” said Master Fox.", ar: "هبطا في قرية نينجا ودودة. قال المعلم الثعلب: «انطفأ مصباح الشجاعة». ", scene: "ninja-village" },
+      { en: "“We can help!” said Ryan. A blue band appeared on his wrist. Ava’s golden band began to shimmer.", ar: "قال ريان: «نستطيع المساعدة!» فظهر سوار أزرق حول معصمه، وبدأ سوار آفا الذهبي يلمع.", scene: "hero-bands" },
+      { en: "Ryan leapt over rooftops with a puff of wind. Ava made a bridge of light so the little ninja mice could cross the stream.", ar: "قفز ريان فوق الأسطح بدفعة من الريح. وصنعت آفا جسراً من نور لتعبر فئران النينجا الصغيرة الجدول.", scene: "helping-mice" },
+      { en: "They found the lantern high in a cherry tree. A sleepy dragon’s tail had caught its ribbon.", ar: "وجدا المصباح عالياً في شجرة كرز. وكان شريطه عالقاً بذيل تنين نعسان.", scene: "sleepy-dragon" },
+      { en: "Ryan lifted a branch with a gentle gust. Ava called a kind hello, and the dragon woke with a yawn.", ar: "رفع ريان غصناً بنسمة لطيفة. ونادت آفا التنين بتحية رقيقة، فاستيقظ متثائباً.", scene: "dragon-awakes" },
+      { en: "Together, they freed the lantern. It glowed brighter as every villager shared a kind wish.", ar: "حرروا المصباح معاً. وازداد ضياؤه حين شارك كل أهل القرية أمنية طيبة.", scene: "lantern-glows" },
+      { en: "At sunrise, the crane carried them home. “Real heroes use their powers to help,” Ryan and Ava said.", ar: "عند الشروق، حملتهما الرافعة إلى البيت. وقال ريان وآفا: «الأبطال الحقيقيون يستخدمون قواهم لمساعدة الآخرين». ", scene: "home-sunrise" }
+    ]
   }
 ];
